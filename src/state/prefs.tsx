@@ -66,7 +66,7 @@ export function PrefsProvider({ children }: { children: ReactNode }) {
   const [prefs, setPrefs] = useState<Prefs>(() => {
     const saved = load<Prefs>(PREFS_KEY, {
       theme: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light',
-      lang: 'en',
+      lang: 'ar',
       showArabic: true,
       showTransliteration: true,
       showTranslation: true,

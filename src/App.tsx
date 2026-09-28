@@ -1,7 +1,9 @@
-import { CloudOff, Languages, WifiOff, Loader2, Moon, RotateCcw, Sun, Wifi } from 'lucide-react'
+import { CloudOff, Settings2, WifiOff, Loader2, Moon, RotateCcw, Sun, Wifi } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { NowPlaying } from './components/AudioPlayer'
+import { LanguageMenu } from './components/LanguageMenu'
 import { LanguageSwitcher } from './components/LanguageSwitcher'
+import { Logo } from './components/Logo'
 import { NAV, Navigation } from './components/Navigation'
 import { Pager } from './components/Pager'
 import { PwaToast } from './components/PwaToast'
@@ -88,15 +90,9 @@ export default function App() {
 
       {/* Top bar */}
       <header className="sticky top-0 z-30 px-3 pt-[max(0.75rem,env(safe-area-inset-top))] lg:ps-32">
-        <div className="glass mx-auto flex max-w-3xl items-center gap-3 rounded-2xl px-3 py-2">
-          <div className="grid size-9 place-items-center rounded-xl bg-emerald-900 text-gold-300 dark:bg-gold-400/15">
-            <svg viewBox="0 0 40 40" className="size-6" aria-hidden>
-              <g fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="11" y="11" width="18" height="18" />
-                <rect x="11" y="11" width="18" height="18" transform="rotate(45 20 20)" />
-              </g>
-              <circle cx="20" cy="20" r="3" fill="currentColor" />
-            </svg>
+        <div className="glass mx-auto flex max-w-3xl items-center gap-2 rounded-2xl px-3 py-2 sm:gap-3">
+          <div className="grid size-10 shrink-0 place-items-center rounded-xl bg-emerald-900 text-gold-300 shadow-inner dark:bg-gold-400/15">
+            <Logo className="size-8" />
           </div>
           <div className="min-w-0 flex-1 leading-tight">
             <p className="flex items-baseline gap-2">
@@ -124,14 +120,15 @@ export default function App() {
           >
             {prefs.theme === 'dark' ? <Sun className="size-5" /> : <Moon className="size-5" />}
           </button>
+          <LanguageMenu />
           <button
             type="button"
             onClick={() => setSettingsOpen(true)}
             aria-label={t.settings}
-            className="flex h-10 items-center gap-1.5 rounded-xl bg-emerald-900/5 px-3 text-sm font-medium transition-colors hover:bg-emerald-900/10 active:scale-95 dark:bg-gold-200/10 dark:hover:bg-gold-200/15"
+            aria-haspopup="dialog"
+            className="grid size-10 place-items-center rounded-xl transition-colors hover:bg-emerald-900/5 active:scale-95 dark:hover:bg-gold-200/10"
           >
-            <Languages className="size-4" />
-            <span className="uppercase">{prefs.lang}</span>
+            <Settings2 className="size-5" />
           </button>
         </div>
       </header>
