@@ -1,6 +1,6 @@
 import { Check, Moon, Sun, X } from 'lucide-react'
 import { useEffect, useRef } from 'react'
-import { LANGS } from '../i18n'
+import { ARABIC_ONLY, LANGS } from '../i18n'
 import { usePrefs, type Prefs } from '../state/prefs'
 import { OfflineSettings } from './OfflineSettings'
 
@@ -59,6 +59,8 @@ export function LanguageSwitcher({ open, onClose, audioUrls }: { open: boolean; 
           </button>
         </div>
 
+        {!ARABIC_ONLY && (
+          <>
         <h3 className="mb-2 text-xs font-semibold tracking-[0.16em] text-gold-600 uppercase dark:text-gold-400">{t.language}</h3>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
           {LANGS.map((l) => {
@@ -92,8 +94,10 @@ export function LanguageSwitcher({ open, onClose, audioUrls }: { open: boolean; 
             <Toggle key={key} label={label} disabled={disabled} checked={prefs[key] as boolean} onChange={(v) => setPref(key, v as never)} />
           ))}
         </div>
+          </>
+        )}
 
-        <h3 className="mt-6 mb-2 text-xs font-semibold tracking-[0.16em] text-gold-600 uppercase dark:text-gold-400">{t.theme}</h3>
+        <h3 className={`${ARABIC_ONLY ? '' : 'mt-6 '}mb-2 text-xs font-semibold tracking-[0.16em] text-gold-600 uppercase dark:text-gold-400`}>{t.theme}</h3>
         <div className="grid grid-cols-2 gap-1 rounded-2xl bg-emerald-900/5 p-1 dark:bg-gold-200/5">
           {(['light', 'dark'] as const).map((mode) => (
             <button

@@ -11,10 +11,12 @@ npm run build
 ## Features
 
 - **Categories:** morning, evening, after prayer, sleep, and daily duas, with a bottom tab bar on phones and a side rail on desktop.
-- **Tasbeeh counter:** a radial ring and a progress bar per card. Tapping the card also counts. Phones that support it vibrate on each tap and give a stronger pattern when the target is reached. The page then scrolls to the next unfinished item. Counters reset each calendar day.
-- **Audio:** recitations from hisnmuslim.com play through a single shared player, with a "now playing" bar and visualizer.
+- **One zikr per screen:** on phones the page is a fixed-height screen: header, summary and card sit above the tab bar, and long azkar scroll inside the card. Previous and next buttons, the counter and a progress strip sit in the card footer; swipe and arrow keys work too.
+- **Tasbeeh counter:** a radial ring and a progress bar per card. Tapping the card also counts. Phones that support it vibrate on each tap and give a stronger pattern when the target is reached. The app then moves on to the next unfinished zikr. Counters reset each calendar day.
+- **Audio:** recitations from hisnmuslim.com play through a single shared player. The play button in each card shows a visualizer and a progress line, and moving to another card stops playback.
+- **Arabic only for now:** `ARABIC_ONLY` in `src/i18n.ts` locks the interface to Arabic and hides the language picker, transliteration and translation. Set it to `false` to bring back the other languages below.
 - **Languages:** English, Arabic, French, Bahasa Indonesia and Urdu. Arabic and Urdu switch the layout to right-to-left. You can show or hide the Arabic text, transliteration and translation.
-- **Themes:** light and dark, using glass cards over an eight-point-star pattern.
+- **Themes:** light and dark, using glass cards over an eight-point-star pattern, with a mihrab-and-crescent logo.
 
 ## Offline / PWA
 

@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import type { CategoryId } from '../data/api'
-import { LANGS, STRINGS, type Lang } from '../i18n'
+import { ARABIC_ONLY, LANGS, STRINGS, type Lang } from '../i18n'
 
 export interface Prefs {
   theme: 'light' | 'dark'
@@ -74,7 +74,8 @@ export function PrefsProvider({ children }: { children: ReactNode }) {
     })
     const requested = requestedCategory()
     if (requested) history.replaceState(null, '', location.pathname)
-    return requested ? { ...saved, category: requested } : saved
+    const prefs = requested ? { ...saved, category: requested } : saved
+    return ARABIC_ONLY ? { ...prefs, lang: 'ar', showArabic: true, showTransliteration: false, showTranslation: false } : prefs
   })
 
   // Progress is scoped to a calendar day: a new day starts with fresh counters.

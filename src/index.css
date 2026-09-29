@@ -137,6 +137,13 @@ body {
   line-height: 2.3;
 }
 
+/* Soft fade at the bottom of scrolling zikr text. */
+.fade-bottom {
+  -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 1.75rem), transparent);
+  mask-image: linear-gradient(to bottom, black calc(100% - 1.75rem), transparent);
+  scrollbar-width: thin;
+}
+
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { scrollbar-width: none; }
 

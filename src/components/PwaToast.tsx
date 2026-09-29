@@ -23,7 +23,7 @@ export function PwaToast() {
   }
 
   return (
-    <div role="status" className="fixed inset-x-3 top-[calc(4.75rem+env(safe-area-inset-top))] z-[25] mx-auto max-w-md animate-rise">
+    <div role="status" className="mb-3 shrink-0 animate-rise">
       <div className="glass glass-done flex items-center gap-3 rounded-2xl bg-parchment/80 p-3 text-sm text-emerald-950 dark:bg-ink-900/85 dark:text-gold-50">
         {needRefresh ? (
           <RefreshCw className="size-5 shrink-0 text-gold-600 dark:text-gold-400" />

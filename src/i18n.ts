@@ -2,6 +2,12 @@ import type { CategoryId } from './data/api'
 
 export type Lang = 'en' | 'ar' | 'fr' | 'id' | 'ur'
 
+/**
+ * Ship Arabic only for now: locks the UI to Arabic and hides the language picker,
+ * transliteration and translation. Set to false to bring the other languages back.
+ */
+export const ARABIC_ONLY = true
+
 export const LANGS: { id: Lang; label: string; native: string; rtl: boolean }[] = [
   { id: 'en', label: 'English', native: 'English', rtl: false },
   { id: 'ar', label: 'Arabic', native: 'العربية', rtl: true },
