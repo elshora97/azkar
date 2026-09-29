@@ -4,6 +4,7 @@ import { LanguageMenu } from './components/LanguageMenu'
 import { LanguageSwitcher } from './components/LanguageSwitcher'
 import { Logo } from './components/Logo'
 import { NAV, Navigation } from './components/Navigation'
+import { IosInstallBanner } from './components/IosInstall'
 import { PwaToast } from './components/PwaToast'
 import { ZikrCard } from './components/ZikrCard'
 import type { CategoryId } from './data/api'
@@ -52,6 +53,7 @@ export default function App() {
 
   const goTo = (next: number) => {
     if (next < 0 || next >= items.length || next === index) return
+    if (track) stop()
     setPage({ category: prefs.category, index: next, dir: next > index ? 1 : -1 })
   }
 
@@ -122,6 +124,7 @@ export default function App() {
 
       <main className="mx-auto flex min-h-0 w-full max-w-3xl flex-1 flex-col px-3 pt-3 pb-[calc(5.25rem+env(safe-area-inset-bottom))] sm:pt-5 lg:ps-32 lg:pb-5">
         <PwaToast />
+        <IosInstallBanner />
 
         {/* Category summary */}
         <section key={prefs.category} className="mb-3 shrink-0 animate-rise px-1 sm:mb-5 sm:px-2">

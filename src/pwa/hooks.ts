@@ -50,3 +50,11 @@ export function useInstallPrompt() {
     listeners.forEach((l) => l())
   }
 }
+
+/** iPhone, iPod or iPad — including iPadOS, which reports itself as a Mac with touch. */
+export const isIos = () =>
+  /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+
+/** True when running as an installed app rather than in a browser tab. */
+export const isStandalone = () =>
+  matchMedia('(display-mode: standalone)').matches || (navigator as Navigator & { standalone?: boolean }).standalone === true

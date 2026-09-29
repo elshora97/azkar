@@ -1,7 +1,8 @@
 import { CheckCircle2, Download, Loader2, MonitorDown } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { countSavedAudio, saveAudio } from '../pwa/caches'
-import { useInstallPrompt } from '../pwa/hooks'
+import { isIos, isStandalone, useInstallPrompt } from '../pwa/hooks'
+import { IosInstallSteps } from './IosInstall'
 import { usePrefs } from '../state/prefs'
 
 const fill = (s: string, n: number, total: number) => s.replace('{n}', String(n)).replace('{total}', String(total))
@@ -69,6 +70,11 @@ export function OfflineSettings({ audioUrls, open }: { audioUrls: string[]; open
             <div className="mt-2 h-1 overflow-hidden rounded-full bg-emerald-900/10 dark:bg-gold-200/10">
               <div className="h-full rounded-full bg-gold-500 transition-[width] duration-300" style={{ width: `${(saved / total) * 100}%` }} />
             </div>
+          </div>
+        )}
+        {isIos() && !isStandalone() && (
+          <div className="rounded-2xl border border-gold-500/50 bg-gold-300/20 p-3 dark:bg-gold-400/10">
+            <IosInstallSteps />
           </div>
         )}
         {install && (

@@ -35,7 +35,7 @@ What gets cached:
 | Hisn al-Muslim API | Tries the network first; after 5 s it uses the cached copy (the page also keeps its own copy in `localStorage`) |
 | Recitations | Saved when played or via **Settings → Offline → Download**. The service worker stores the full MP3 and serves the byte ranges the audio player asks for from that copy |
 
-Also included: an update prompt when a new version is deployed, a "Ready to work offline" notice, an offline badge in the header, an install button (on browsers that support it), and home-screen shortcuts to Morning, Evening and Sleep (`/?c=<category>`).
+Also included: an update prompt when a new version is deployed, a "Ready to work offline" notice, an offline badge in the header, an install button (on browsers that support it; iPhone and iPad never offer one, so iOS users get Share → Add to Home Screen steps in a one-time notice and in Settings), and home-screen shortcuts to Morning, Evening and Sleep (`/?c=<category>`).
 
 Icons are generated from `public/favicon.svg` with `npx pwa-assets-generator` (see `pwa-assets.config.ts`).
 

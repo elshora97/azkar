@@ -59,6 +59,11 @@ interface Strings {
   install: string
   installHint: string
   youAreOffline: string
+  iosInstallTitle: string
+  iosStepShare: string
+  iosStepAdd: string
+  iosStepConfirm: string
+  dismiss: string
   times: string
   audioUnavailable: string
 }
@@ -113,6 +118,11 @@ export const STRINGS: Record<Lang, Strings> = {
     install: "Install app",
     installHint: "Add Azkar to your home screen",
     youAreOffline: "Offline",
+    iosInstallTitle: "Install Azkar on your iPhone",
+    iosStepShare: "Tap the Share button in the browser bar",
+    iosStepAdd: "Choose “Add to Home Screen”",
+    iosStepConfirm: "Tap “Add” — Azkar opens like an app, even offline",
+    dismiss: "Not now",
     times: '×',
     audioUnavailable: 'No recitation for this wording',
   },
@@ -165,6 +175,11 @@ export const STRINGS: Record<Lang, Strings> = {
     install: "تثبيت التطبيق",
     installHint: "أضف أذكار إلى الشاشة الرئيسية",
     youAreOffline: "دون اتصال",
+    iosInstallTitle: "ثبّت أذكار على جهازك",
+    iosStepShare: "اضغط زر المشاركة في شريط المتصفح",
+    iosStepAdd: "اختر «إضافة إلى الشاشة الرئيسية»",
+    iosStepConfirm: "اضغط «إضافة» ليعمل كتطبيق حتى دون اتصال",
+    dismiss: "لاحقًا",
     times: '×',
     audioUnavailable: 'لا توجد تلاوة لهذه الصيغة',
   },
@@ -217,6 +232,11 @@ export const STRINGS: Record<Lang, Strings> = {
     install: "Installer l'app",
     installHint: "Ajouter Azkar à l'écran d'accueil",
     youAreOffline: "Hors ligne",
+    iosInstallTitle: "Installer Azkar sur votre iPhone",
+    iosStepShare: "Touchez le bouton Partager du navigateur",
+    iosStepAdd: "Choisissez « Sur l’écran d’accueil »",
+    iosStepConfirm: "Touchez « Ajouter » — Azkar s’ouvre comme une app, même hors ligne",
+    dismiss: "Plus tard",
     times: '×',
     audioUnavailable: 'Pas de récitation pour cette formulation',
   },
@@ -269,6 +289,11 @@ export const STRINGS: Record<Lang, Strings> = {
     install: "Pasang aplikasi",
     installHint: "Tambahkan Azkar ke layar utama",
     youAreOffline: "Luring",
+    iosInstallTitle: "Pasang Azkar di iPhone Anda",
+    iosStepShare: "Ketuk tombol Bagikan di bilah peramban",
+    iosStepAdd: "Pilih “Tambah ke Layar Utama”",
+    iosStepConfirm: "Ketuk “Tambah” — Azkar terbuka seperti aplikasi, bahkan luring",
+    dismiss: "Nanti",
     times: '×',
     audioUnavailable: 'Tidak ada bacaan untuk lafaz ini',
   },
@@ -321,6 +346,11 @@ export const STRINGS: Record<Lang, Strings> = {
     install: "ایپ انسٹال کریں",
     installHint: "اذکار کو ہوم اسکرین پر شامل کریں",
     youAreOffline: "آف لائن",
+    iosInstallTitle: "اذکار کو اپنے آئی فون پر انسٹال کریں",
+    iosStepShare: "براؤزر میں شیئر کا بٹن دبائیں",
+    iosStepAdd: "«ہوم اسکرین میں شامل کریں» منتخب کریں",
+    iosStepConfirm: "«شامل کریں» دبائیں — ایپ آف لائن بھی چلے گی",
+    dismiss: "بعد میں",
     times: '×',
     audioUnavailable: 'اس عبارت کی تلاوت دستیاب نہیں',
   },

@@ -1,5 +1,6 @@
 import { BookHeart, Moon, Sparkles, Sunrise, Sunset, type LucideIcon } from 'lucide-react'
 import type { CategoryId } from '../data/api'
+import { useAudio } from '../state/audio'
 import { usePrefs } from '../state/prefs'
 
 export const NAV: { id: CategoryId; icon: LucideIcon }[] = [
@@ -13,6 +14,7 @@ export const NAV: { id: CategoryId; icon: LucideIcon }[] = [
 /** Bottom tab bar on phones and tablets; a vertical rail on large screens. */
 export function Navigation() {
   const { prefs, setPref, t } = usePrefs()
+  const { track, stop } = useAudio()
 
   return (
     <nav
@@ -28,6 +30,7 @@ export function Navigation() {
               <button
                 type="button"
                 onClick={() => {
+                  if (track) stop()
                   setPref('category', id)
                   window.scrollTo({ top: 0, behavior: 'smooth' })
                 }}
