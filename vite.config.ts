@@ -15,7 +15,7 @@ export default defineConfig({
       injectManifest: {
         globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2}'],
         // Only precache font subsets the app's five languages actually use.
-        globIgnores: ['**/*-{cyrillic,cyrillic-ext,greek,vietnamese}-*.woff2'],
+        globIgnores: ['**/*-{cyrillic,cyrillic-ext,greek,vietnamese}-*.woff2', '**/logo.png'],
       },
       manifest: {
         name: 'Azkar · أذكار',

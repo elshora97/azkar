@@ -16,7 +16,7 @@ npm run build
 - **Audio:** recitations from hisnmuslim.com play through a single shared player. The play button in each card shows a visualizer and a progress line, and moving to another card stops playback.
 - **Arabic only for now:** `ARABIC_ONLY` in `src/i18n.ts` locks the interface to Arabic and hides the language picker, transliteration and translation. Set it to `false` to bring back the other languages below.
 - **Languages:** English, Arabic, French, Bahasa Indonesia and Urdu. Arabic and Urdu switch the layout to right-to-left. You can show or hide the Arabic text, transliteration and translation.
-- **Themes:** light and dark, using glass cards over an eight-point-star pattern, with a mihrab-and-crescent logo.
+- **Themes:** light and dark, using glass cards over an eight-point-star pattern, with a mosque-dome, Quran and misbaha logo.
 
 ## Offline / PWA
 
@@ -37,7 +37,7 @@ What gets cached:
 
 Also included: an update prompt when a new version is deployed, a "Ready to work offline" notice, an offline badge in the header, an install button (on browsers that support it; iPhone and iPad never offer one, so iOS users get Share → Add to Home Screen steps in a one-time notice and in Settings), and home-screen shortcuts to Morning, Evening and Sleep (`/?c=<category>`).
 
-Icons are generated from `public/favicon.svg` with `npx pwa-assets-generator` (see `pwa-assets.config.ts`).
+Icons are generated from `public/logo.png` with `npx pwa-assets-generator` (see `pwa-assets.config.ts`). The logo artwork came with a baked-in checkerboard; `node scripts/cutout-logo.cjs <in> public/logo.png` removes it and crops to a transparent square.
 
 ## Data
 

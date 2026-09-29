@@ -2,7 +2,6 @@ import { CloudOff, Loader2, Moon, RotateCcw, Settings2, Sun, Wifi, WifiOff } fro
 import { useEffect, useRef, useState } from 'react'
 import { LanguageMenu } from './components/LanguageMenu'
 import { LanguageSwitcher } from './components/LanguageSwitcher'
-import { Logo } from './components/Logo'
 import { NAV, Navigation } from './components/Navigation'
 import { IosInstallBanner } from './components/IosInstall'
 import { Misbaha } from './components/Misbaha'
@@ -100,9 +99,7 @@ export default function App() {
 
       <header className="relative z-30 shrink-0 px-3 pt-[max(0.75rem,env(safe-area-inset-top))] lg:ps-32">
         <div className="glass mx-auto flex max-w-3xl items-center gap-2 rounded-2xl px-3 py-2 sm:gap-3">
-          <div className="grid size-10 shrink-0 place-items-center rounded-xl bg-emerald-900 text-gold-300 shadow-inner dark:bg-gold-400/15">
-            <Logo className="size-8" />
-          </div>
+          <img src="/pwa-192x192.png" alt="" width="44" height="44" className="size-11 shrink-0 drop-shadow-sm" />
           <div className="min-w-0 flex-1 leading-tight">
             <p className="font-display text-lg font-semibold">{t.appName}</p>
             <p className="flex items-center gap-1.5 truncate text-xs">
