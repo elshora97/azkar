@@ -1,7 +1,13 @@
-import { BookHeart, Clock, Moon, Sparkles, Sunrise, Sunset, type LucideIcon } from 'lucide-react'
+import { BookHeart, CircleDot, Clock, Moon, Sparkles, Sunrise, Sunset, type LucideIcon } from 'lucide-react'
 import type { CategoryId } from '../data/api'
 import { useAudio } from '../state/audio'
 import { usePrefs } from '../state/prefs'
+
+// Non-azkar screens (Arabic labels while the app is Arabic-only).
+const EXTRA: { view: 'times' | 'misbaha'; label: string; icon: LucideIcon }[] = [
+  { view: 'misbaha', label: 'المسبحة', icon: CircleDot },
+  { view: 'times', label: 'المواقيت', icon: Clock },
+]
 
 export const NAV: { id: CategoryId; icon: LucideIcon }[] = [
   { id: 'morning', icon: Sunrise },
@@ -36,7 +42,7 @@ export function Navigation() {
                   window.scrollTo({ top: 0, behavior: 'smooth' })
                 }}
                 aria-current={active ? 'page' : undefined}
-                className={`relative flex w-full touch-manipulation flex-col items-center gap-1 rounded-2xl px-1 py-2 transition-colors active:scale-95 ${
+                className={`relative flex w-full touch-manipulation flex-col items-center gap-1 rounded-2xl px-0.5 py-2 transition-colors active:scale-95 ${
                   active
                     ? 'text-emerald-950 dark:text-gold-200'
                     : 'text-emerald-900/55 hover:text-emerald-900 dark:text-gold-100/45 dark:hover:text-gold-100/80'
@@ -46,32 +52,37 @@ export function Navigation() {
                   <span className="absolute inset-0 -z-10 animate-pop rounded-2xl bg-gradient-to-b from-gold-300/70 to-gold-400/40 dark:from-gold-400/20 dark:to-emerald-500/10" />
                 )}
                 <Icon className="size-5" strokeWidth={active ? 2.2 : 1.8} />
-                <span className="line-clamp-1 text-[0.68rem] font-medium tracking-wide">{t.categories[id]}</span>
+                <span className="line-clamp-1 text-[0.6rem] font-medium whitespace-nowrap sm:text-[0.68rem] sm:tracking-wide">{t.categories[id]}</span>
               </button>
             </li>
           )
         })}
-        <li className="flex-1">
-          <button
-            type="button"
-            onClick={() => {
-              if (track) stop()
-              setPref('view', 'times')
-            }}
-            aria-current={prefs.view === 'times' ? 'page' : undefined}
-            className={`relative flex w-full touch-manipulation flex-col items-center gap-1 rounded-2xl px-1 py-2 transition-colors active:scale-95 ${
-              prefs.view === 'times'
-                ? 'text-emerald-950 dark:text-gold-200'
-                : 'text-emerald-900/55 hover:text-emerald-900 dark:text-gold-100/45 dark:hover:text-gold-100/80'
-            }`}
-          >
-            {prefs.view === 'times' && (
-              <span className="absolute inset-0 -z-10 animate-pop rounded-2xl bg-gradient-to-b from-gold-300/70 to-gold-400/40 dark:from-gold-400/20 dark:to-emerald-500/10" />
-            )}
-            <Clock className="size-5" strokeWidth={prefs.view === 'times' ? 2.2 : 1.8} />
-            <span className="line-clamp-1 text-[0.68rem] font-medium tracking-wide">المواقيت</span>
-          </button>
-        </li>
+        {EXTRA.map(({ view, label, icon: Icon }) => {
+          const active = prefs.view === view
+          return (
+            <li key={view} className="flex-1">
+              <button
+                type="button"
+                onClick={() => {
+                  if (track) stop()
+                  setPref('view', view)
+                }}
+                aria-current={active ? 'page' : undefined}
+                className={`relative flex w-full touch-manipulation flex-col items-center gap-1 rounded-2xl px-0.5 py-2 transition-colors active:scale-95 ${
+                  active
+                    ? 'text-emerald-950 dark:text-gold-200'
+                    : 'text-emerald-900/55 hover:text-emerald-900 dark:text-gold-100/45 dark:hover:text-gold-100/80'
+                }`}
+              >
+                {active && (
+                  <span className="absolute inset-0 -z-10 animate-pop rounded-2xl bg-gradient-to-b from-gold-300/70 to-gold-400/40 dark:from-gold-400/20 dark:to-emerald-500/10" />
+                )}
+                <Icon className="size-5" strokeWidth={active ? 2.2 : 1.8} />
+                <span className="line-clamp-1 text-[0.6rem] font-medium whitespace-nowrap sm:text-[0.68rem] sm:tracking-wide">{label}</span>
+              </button>
+            </li>
+          )
+        })}
       </ul>
     </nav>
   )

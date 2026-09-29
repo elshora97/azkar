@@ -9,8 +9,8 @@ export interface Prefs {
   showTransliteration: boolean
   showTranslation: boolean
   category: CategoryId
-  /** Azkar reader or the prayer times & qibla screen. */
-  view: 'azkar' | 'times'
+  /** Azkar reader, prayer times & qibla, or the electronic misbaha. */
+  view: 'azkar' | 'times' | 'misbaha'
 }
 
 const PREFS_KEY = 'azkar:prefs'

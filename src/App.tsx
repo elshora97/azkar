@@ -5,6 +5,7 @@ import { LanguageSwitcher } from './components/LanguageSwitcher'
 import { Logo } from './components/Logo'
 import { NAV, Navigation } from './components/Navigation'
 import { IosInstallBanner } from './components/IosInstall'
+import { Misbaha } from './components/Misbaha'
 import { PrayerTimes } from './components/PrayerTimes'
 import { PwaToast } from './components/PwaToast'
 import { ZikrCard } from './components/ZikrCard'
@@ -129,6 +130,8 @@ export default function App() {
 
         {prefs.view === 'times' ? (
           <PrayerTimes />
+        ) : prefs.view === 'misbaha' ? (
+          <Misbaha />
         ) : (
           <>
         {/* Category summary */}
