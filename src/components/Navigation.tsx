@@ -1,4 +1,4 @@
-import { BookHeart, Moon, Sparkles, Sunrise, Sunset, type LucideIcon } from 'lucide-react'
+import { BookHeart, Clock, Moon, Sparkles, Sunrise, Sunset, type LucideIcon } from 'lucide-react'
 import type { CategoryId } from '../data/api'
 import { useAudio } from '../state/audio'
 import { usePrefs } from '../state/prefs'
@@ -24,7 +24,7 @@ export function Navigation() {
     >
       <ul className="flex justify-between lg:flex-col lg:gap-1">
         {NAV.map(({ id, icon: Icon }) => {
-          const active = prefs.category === id
+          const active = prefs.view === 'azkar' && prefs.category === id
           return (
             <li key={id} className="flex-1">
               <button
@@ -32,6 +32,7 @@ export function Navigation() {
                 onClick={() => {
                   if (track) stop()
                   setPref('category', id)
+                  setPref('view', 'azkar')
                   window.scrollTo({ top: 0, behavior: 'smooth' })
                 }}
                 aria-current={active ? 'page' : undefined}
@@ -50,6 +51,27 @@ export function Navigation() {
             </li>
           )
         })}
+        <li className="flex-1">
+          <button
+            type="button"
+            onClick={() => {
+              if (track) stop()
+              setPref('view', 'times')
+            }}
+            aria-current={prefs.view === 'times' ? 'page' : undefined}
+            className={`relative flex w-full touch-manipulation flex-col items-center gap-1 rounded-2xl px-1 py-2 transition-colors active:scale-95 ${
+              prefs.view === 'times'
+                ? 'text-emerald-950 dark:text-gold-200'
+                : 'text-emerald-900/55 hover:text-emerald-900 dark:text-gold-100/45 dark:hover:text-gold-100/80'
+            }`}
+          >
+            {prefs.view === 'times' && (
+              <span className="absolute inset-0 -z-10 animate-pop rounded-2xl bg-gradient-to-b from-gold-300/70 to-gold-400/40 dark:from-gold-400/20 dark:to-emerald-500/10" />
+            )}
+            <Clock className="size-5" strokeWidth={prefs.view === 'times' ? 2.2 : 1.8} />
+            <span className="line-clamp-1 text-[0.68rem] font-medium tracking-wide">المواقيت</span>
+          </button>
+        </li>
       </ul>
     </nav>
   )

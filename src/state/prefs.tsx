@@ -9,6 +9,8 @@ export interface Prefs {
   showTransliteration: boolean
   showTranslation: boolean
   category: CategoryId
+  /** Azkar reader or the prayer times & qibla screen. */
+  view: 'azkar' | 'times'
 }
 
 const PREFS_KEY = 'azkar:prefs'
@@ -71,10 +73,11 @@ export function PrefsProvider({ children }: { children: ReactNode }) {
       showTransliteration: true,
       showTranslation: true,
       category: defaultCategory(),
+      view: 'azkar',
     })
     const requested = requestedCategory()
     if (requested) history.replaceState(null, '', location.pathname)
-    const prefs = requested ? { ...saved, category: requested } : saved
+    const prefs = requested ? { ...saved, category: requested, view: 'azkar' as const } : saved
     return ARABIC_ONLY ? { ...prefs, lang: 'ar', showArabic: true, showTransliteration: false, showTranslation: false } : prefs
   })
 

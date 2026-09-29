@@ -5,6 +5,7 @@ import { LanguageSwitcher } from './components/LanguageSwitcher'
 import { Logo } from './components/Logo'
 import { NAV, Navigation } from './components/Navigation'
 import { IosInstallBanner } from './components/IosInstall'
+import { PrayerTimes } from './components/PrayerTimes'
 import { PwaToast } from './components/PwaToast'
 import { ZikrCard } from './components/ZikrCard'
 import type { CategoryId } from './data/api'
@@ -126,6 +127,10 @@ export default function App() {
         <PwaToast />
         <IosInstallBanner />
 
+        {prefs.view === 'times' ? (
+          <PrayerTimes />
+        ) : (
+          <>
         {/* Category summary */}
         <section key={prefs.category} className="mb-3 shrink-0 animate-rise px-1 sm:mb-5 sm:px-2">
           <div className="flex items-end justify-between gap-4">
@@ -180,6 +185,8 @@ export default function App() {
           >
             <ZikrCard zikr={zikr} items={items} index={index} onComplete={() => advanceFrom(index)} onNavigate={goTo} />
           </div>
+        )}
+          </>
         )}
       </main>
 
